@@ -63,7 +63,6 @@ This significant imbalance will be addressed in the modeling phase.
 
 ### Confusion Matrix
 [[3289 17]
-
 [ 44 230]]
 
 - True Positive (TP): **3289**
