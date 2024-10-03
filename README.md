@@ -1,7 +1,7 @@
 # Pulsar Star Classification Project 🚀🌌
 
 ## Overview
-This project aims to classify pulsar stars using various SVM models with different kernels and hyperparameters. The primary goal is to achieve high accuracy in distinguishing between pulsar stars and non-pulsar stars based on the given dataset.
+This project aims to classify pulsar stars using SVM model with different kernels and hyperparameters. The primary goal is to achieve high accuracy in distinguishing between pulsar stars and non-pulsar stars based on the given dataset.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -14,7 +14,7 @@ This project aims to classify pulsar stars using various SVM models with differe
 8. [Conclusion](#conclusion)
 
 ## Introduction
-Pulsar stars are highly magnetized rotating neutron stars that emit beams of electromagnetic radiation. The classification of pulsar stars is crucial for astrophysics research. In this project, we use Support Vector Machine (SVM) models to classify pulsar stars based on their features.
+Pulsar stars are highly magnetized rotating neutron stars that emit beams of electromagnetic radiation. The classification of pulsar stars is crucial for astrophysics research. In this project, we use Support Vector Machine (SVM) model to classify pulsar stars based on their features.
 
 ## Dataset Overview 📊
 ### - The dataset consists of **9 variables**: 
