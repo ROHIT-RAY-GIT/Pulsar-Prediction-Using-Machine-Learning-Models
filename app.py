@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 from sklearn.preprocessing import StandardScaler
+import base64
 
 # Load dataset
 file_path = 'pulsar_stars.csv'  # Replace with the correct file path
@@ -21,38 +22,72 @@ def load_model(filename):
         model = pickle.load(file)
     return model
 
-# Title for the app
-st.title("Pulsar Star Classification")
+# Function to read and encode the image file
+def get_base64_image(image_path):
+    with open(image_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
+    return encoded_string
 
-# Set the background image
-background_image = 'galaxy.jpg'  # Replace with your image path or URL
-st.markdown(
-    f"""
+# Set the background image using CSS
+def set_background(image_base64):
+    page_bg_img = f"""
     <style>
-    .css-1g8v9l0 {{  /* This is the class for the main container, which might change based on Streamlit updates */
-        background-image: url("{background_image}");
+    .stApp {{
+        background: url("data:image/png;base64,{image_base64}");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        color: white;  /* Default text color */
+    }}
+    /* Main content styling */
+    .css-1g8v9l0 {{
+        background: rgba(255, 255, 255, 0.8); /* Slightly transparent for better readability */
+        padding: 20px; /* Padding for content */
+        border-radius: 10px; /* Rounded corners */
+    }}
+    /* Set text color to black for all text elements */
+    h1, h2, h3, h4, h5, h6, p, span, div, label {{
+        color: white; /* Ensuring all text is white */
+    }}
+    .stButton > button {{
+        background-color: #4C4C6D; /* Button color */
+        color: white; /* Text color for button */
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+    }}
+    .stButton > button:hover {{
+        background-color: #6A5ACD; /* Button hover color */
+        color: white;
+    }}
+    .stSlider > div {{
+        background-color: transparent;
     }}
     </style>
-    """,
-    unsafe_allow_html=True
-)
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Sidebar for model selection
-st.sidebar.title("Choose a model for prediction")
-model_option = st.sidebar.selectbox("Select Model", 
-                                    ("SVM - RBF Kernel and C = 100", 
-                                     "SVM - RBF Kernel and C = 1000", 
-                                     "SVM - Linear Kernel and C = 1.0", 
-                                     "SVM - Linear Kernel and C = 100.0", 
-                                     "SVM - Linear Kernel and C = 1000.0", 
-                                     "SVM - Polynomial Kernel and C = 1.0", 
-                                     "SVM - Polynomial Kernel and C = 100.0", 
-                                     "SVM - Sigmoid Kernel and C = 1.0", 
-                                     "SVM - Sigmoid Kernel and C = 100.0", 
-                                     "SVM - Default Model"))
+# Call the function with the uploaded background image
+image_base64 = get_base64_image("galaxy.jpg")  # Path to your uploaded image
+set_background(image_base64)
+
+# Title for the app
+st.title("Pulsar Star Classification")
+
+# Main content for model selection and inputs
+st.subheader("Choose a model for prediction")
+model_option = st.selectbox("Select Model", 
+                            ("SVM - RBF Kernel and C = 100", 
+                             "SVM - RBF Kernel and C = 1000", 
+                             "SVM - Linear Kernel and C = 1.0", 
+                             "SVM - Linear Kernel and C = 100.0", 
+                             "SVM - Linear Kernel and C = 1000.0", 
+                             "SVM - Polynomial Kernel and C = 1.0", 
+                             "SVM - Polynomial Kernel and C = 100.0", 
+                             "SVM - Sigmoid Kernel and C = 1.0", 
+                             "SVM - Sigmoid Kernel and C = 100.0", 
+                             "SVM - Default Model"))
 
 # Inputs for user
 st.subheader("Input Features")
