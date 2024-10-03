@@ -23,9 +23,9 @@ Pulsar stars are highly magnetized rotating neutron stars that emit beams of ele
 
 ## Class Distribution ⚖️
 ### - Class labels: 
-#   - `0` (not a pulsar): **90.84%**
-#   - `1` (pulsar): **9.16%**  
-# This significant imbalance will be addressed in the modeling phase.
+- `0` (not a pulsar): **90.84%**
+- `1` (pulsar): **9.16%**  
+This significant imbalance will be addressed in the modeling phase.
 
 ## Data Preprocessing 🧹
 ### The dataset used for this project contains features derived from pulsar stars. The data preprocessing steps include:
