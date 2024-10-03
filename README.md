@@ -62,9 +62,10 @@ This significant imbalance will be addressed in the modeling phase.
 - Sigmoid Kernel (C = 100.0): **0.8858**
 
 ### Confusion Matrix
-[[3289 17]
-
-[ 44 230]]
+        
+          [[3289 17] 
+          [ 44 230]]
+  
 
 - True Positive (TP): **3289**
 - True Negative (TN): **230**
