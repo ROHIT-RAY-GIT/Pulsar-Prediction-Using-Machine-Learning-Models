@@ -82,3 +82,5 @@ This significant imbalance will be addressed in the modeling phase.
 ## Conclusion 🎉
 The project successfully demonstrates the effectiveness of SVM models in classifying pulsar stars. The results indicate that certain kernel functions yield higher accuracy, contributing to a better understanding of pulsar star classification.
 
+Here is the link for the Streamlit GUI for Pulsar Classification:
+https://pulsar-prediction-system.streamlit.app/
