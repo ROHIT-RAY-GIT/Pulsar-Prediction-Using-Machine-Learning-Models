@@ -73,7 +73,7 @@ image_base64 = get_base64_image("galaxy.jpg")  # Path to your uploaded image
 set_background(image_base64)
 
 # Title for the app
-st.title("Pulsar Star Classification")
+st.markdown("<h1 style='text-align: center;'>Pulsar Star Classification</h1>", unsafe_allow_html=True)
 
 # Main content for model selection and inputs
 st.subheader("Choose a model for prediction")
